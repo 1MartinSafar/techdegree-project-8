@@ -5,7 +5,12 @@ body {
   font-family: 'Roboto Slab', serif;
   font-weight: 300;
   color: #111;
-  background: #edeff0;
+  /* ADDED more to background */
+  background: #edeff0 url(svgs/background.svg) repeat;
+  /* NEW */
+  /*background-image: url(svgs/background.svg);*/
+  /*background-repeat: repeat;*/
+  /*background-size: 300px 300px;*/
 }
 
 #container {
