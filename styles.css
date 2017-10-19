@@ -7,10 +7,6 @@ body {
   color: #111;
   /* ADDED more to background */
   background: #edeff0 url(svgs/background.svg) repeat;
-  /* NEW */
-  /*background-image: url(svgs/background.svg);*/
-  /*background-repeat: repeat;*/
-  /*background-size: 300px 300px;*/
 }
 
 #container {
@@ -65,3 +61,65 @@ footer {
   padding-bottom: 30px;
   color: #ba8058;
 }
+
+/* NEW STYLES */
+
+/* ======================================================================
+                        SVG NAVIGATION
+========================================================================= */
+
+.nav {
+  display: flex;
+  padding-left: 30px;
+  margin-bottom: 75px;
+}
+.nav li {
+  list-style: none;
+  font-weight: bold;
+  color: #39ADD1;
+  margin-right: 2em;
+}
+.nav li:hover {
+  color: #46d2fe;
+}
+.nav li:hover .svg-nav {
+  fill: #46d2fe;
+}
+
+.svg-nav {
+  height: 12px;
+  margin-right: -5px;
+  fill: #39ADD1;
+}
+
+/* ======================================================================
+                        LOGO
+========================================================================= */
+
+#logo {
+  /*width: 175px;*/
+  width: 140px;
+  height: 120px;
+}
+#logo .background {
+  fill:#BA8058;
+}
+#logo .text {
+  fill:#EAAA7F;
+}
+#logo .paw {
+  fill:#F4C6A6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/**/
