@@ -5,7 +5,7 @@ body {
   font-family: 'Roboto Slab', serif;
   font-weight: 300;
   color: #111;
-  /* NEWLY ADDED */
+  /* ADDED SVG as a background image*/
   background: #d2a568 url(svgs/background.svg) repeat;
 }
 
@@ -84,6 +84,7 @@ footer {
 
 .nav {
   display: flex;
+  height: 35px;
   padding-left: 30px;
   margin-bottom: 30px;
 }
@@ -115,14 +116,14 @@ footer {
   height: 120px;
 }
 #logo .background {
-  fill:#BA8058;
+  fill: #BA8058;
 }
 /* Hide the logo text */
 #logo .text {
   display: none;
 }
 #logo .paw {
-  fill:#F4C6A6;
+  fill: #F4C6A6;
 }
 /* Use the logo text in H1 instead*/
 .logo-h1 {
@@ -134,8 +135,19 @@ footer {
                         DOG IMAGES
 ========================================================================= */
 
-.dogs-mr {
+.dog {
+  display: flex;
+  flex-direction: column;
+}
+.name {
+  color: #BA8058;
+  margin-top: 5px;
   margin-right: 20px;
+  margin-bottom: 25px;
+}
+
+.dogs-mr {
+  margin-right: 0;
 }
 
 /*.body {
@@ -169,37 +181,52 @@ footer {
                         TRANSITION EFFECTS FOR MENU ICON AND LOGO HOVER
 ========================================================================= */
 
-/*
-SVGproperty {
-  transition: transform .3s ease-out;
-  transform-origin: 50% 50%; => OR use the cx cy values for px
-  stroke: color;
-}
-SVGproperty:hover {
-  fill: color;
-  stroke-width: 8;
-  transform: rotate(45deg) scale(1.3);
-
-=> group using <g> and give it a class => then target => .class:hover SVGproperty
-}
-
-+ keyframes => animation sequences
-
-@keyframes grow {
-  0% {
-  transform: scale(0);
+@keyframes pulse-nav {
+  50% {
+    transform: scale(1.5);
   }
-  30% {
-  transform: scale(1.1);
+}
+@keyframes pulse-nav-color {
+  20% {
+    fill: #aee6f9;
   }
-  60% {
-  transform: scale(0.9);
+}
+@keyframes pulse-logo {
+  50% {
+    transform: scale(1.5);
+  }
+}
+@keyframes pulse-logo-bg {
+  50% {
+    fill: #653e23;
   }
 }
 
-=====> ENDEC HECKING AT PAGE 9
+.svg-nav {
+  transition-property: height, stroke-width, stroke, animation;
+}
 
-*/
+.nav li:hover .svg-nav {
+  height: 18px;
+  stroke-width: 3;
+  stroke: black;
+  animation: .5s pulse-nav, 1s pulse-nav-color;
+}
+
+#logo {
+  transition: transform 0.5s, stroke, stroke-width, animation 0.5s 0.5s;
+  transform-origin: 50% 50%;
+}
+#logo:hover {
+  animation: 0.5s ease-out 0.5s pulse-logo;
+  transform: rotate(360deg) scale(1.3);
+  stroke-width: 1.75;
+  stroke: black;
+}
+#logo:hover .background {
+  transition-property: animation;
+  animation: 1.5s pulse-logo-bg;
+}
 
 /* ======================================================================
                         425px+ MOBILE FIRST APPROACH
@@ -208,22 +235,19 @@ SVGproperty:hover {
 @media (min-width: 425px) {
   main {
     display: block;
-    /*flex-direction: row;*/
     padding-top: 50px;
   }
   main svg {
     display: inline;
-    /*margin-right: 0;*/
   }
   main svg:not(:last-of-type) {
     margin-bottom: 0;
   }
-  h2 {
-    /*margin-bottom: 30px;*/
-  }
+
   .nav {
     margin-bottom: 75px;
   }
+
   #logo .text {
     display: block;
     fill:#EAAA7F;
@@ -232,6 +256,18 @@ SVGproperty:hover {
   .logo-h1 {
     display: none;
   }
+
+  .dog {
+    display: inline-flex;
+  }
+  .name {
+    margin-right: 60px;
+    margin-bottom: 0;
+  }
+  .dogs-mr {
+    margin-right: 20px;
+  }
+
   footer {
     margin-top: 100px;
   }
