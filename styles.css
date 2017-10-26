@@ -248,6 +248,10 @@ footer {
     margin-bottom: 75px;
   }
 
+  #logo {
+    width: 140px;
+    height: 120px;
+  }
   #logo .text {
     display: block;
     fill:#EAAA7F;
